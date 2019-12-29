@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="use-frameworks-plugin" version="1.0.0">
+    <name>Use Frameworks Plugin</name>
+    <description>Test</description>
+    <license>MIT</license>
+     <!-- ios -->
+    <platform name="ios">
+        <hook type="before_plugin_install" src="src/ios/hooks/iOSBeforeInstall.js" />
+    </platform>
+</plugin>

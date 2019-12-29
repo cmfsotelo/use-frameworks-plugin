@@ -1,0 +1,21 @@
+{
+  "name": "use-frameworks-plugin",
+  "version": "1.0.0",
+  "description": "Test",
+  "cordova": {
+    "id": "use-frameworks-plugin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+  },
+  "keywords": [
+    "cordova",
+    "manipulate",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Carlos Sotelo",
+  "license": "MIT"
+}
