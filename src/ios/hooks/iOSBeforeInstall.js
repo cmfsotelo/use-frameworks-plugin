@@ -13,10 +13,10 @@ module.exports = function (context) {
                 throw new Error('Unable to find Podfile: ' + err);
             }
 
+            console.log("Changing Podfiles.js file")
             data = data.replace("8.0", "9.3");
             data = data.replace(" do\\n", " do\\n\\tuse_modular_headers!\\n");
-            data = data.replace("Creating new Podfile in platforms/ios","Creating new Podfile in platforms/ios MY MY MY");
-
+            
             fs.writeFile(podFile, data, 'utf8', function (err) {
                 if (err) throw new Error('Unable to write into Podfile.js ' + err);
             });
