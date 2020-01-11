@@ -13,7 +13,7 @@ module.exports = function (context) {
                 throw new Error('Unable to find Podfile: ' + err);
             }
 
-            console.log("Changing Podfiles.js file")
+            console.log("Changing Podfile.js file")
             data = data.replace("8.0", "9.3");
             data = data.replace(" do\\n", " do\\n\\tuse_modular_headers!\\n");
             
@@ -24,4 +24,25 @@ module.exports = function (context) {
     } else {
         throw new Error("Coudn't find Podfile.js ");
     }
+
+    var buildFile = path.join(platformRoot, 'build.js');
+    if (fs.existsSync(buildFile)) {
+
+        fs.readFile(buildFile, 'utf8', function (err, data) {
+
+            if (err) {
+                throw new Error('Unable to find buildFile: ' + err);
+            }
+
+            console.log("Changing build.js file")
+            data = data.replace("customArgs.configuration_build_dir || 'CONFIGURATION_BUILD_DIR", "//customArgs.configuration_build_dir || 'CONFIGURATION_BUILD_DIR");
+            
+            fs.writeFile(buildFile, data, 'utf8', function (err) {
+                if (err) throw new Error('Unable to write into build.js ' + err);
+            });
+        });
+    } else {
+        throw new Error("Coudn't find buildFile.js ");
+    }
+    
 }
